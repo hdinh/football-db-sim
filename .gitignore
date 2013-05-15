@@ -1,0 +1,6 @@
+.lein-*
+*~
+pom.xml
+pom.xml.asc
+lib/
+target/
