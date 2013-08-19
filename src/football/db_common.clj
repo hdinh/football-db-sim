@@ -55,12 +55,11 @@
 
 (defn- schema-to-string [specs]
   (let [get-type (fn [x] [x (get column-type-mapping x :text)])
-        specs-with-type (map get-type specs)]
-    (apply str
-      (map name
-        (apply concat
-          (interpose [", "]
-            (map (partial interpose " ") specs-with-type)))))))
+        specs-with-type (map get-type specs)
+        spec-items (apply concat
+                          (interpose [", "]
+                                     (map (partial interpose " ") specs-with-type)))]
+    (apply str (map name spec-items))))
 
 (defn- create-table-internal [dbname schema]
   (sql/do-commands

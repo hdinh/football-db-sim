@@ -191,7 +191,7 @@
 
 (defn get-duration-distribution
   ([{:keys [qtr scorediff yardsgained playtype touchdown]}]
-    (distribution-sql :duration duration_summary {:qtr qtr ;; TODO - this sucks, but no crashses
+    (distribution-sql :duration duration_summary {:qtr qtr ;; TODO - this sucks, but no crashes
                                                   :scorediff (get-scorediff-range scorediff)
                                                   :yardlinechange (get-yardlinechange-range yardsgained)
                                                   :playtype (name playtype)

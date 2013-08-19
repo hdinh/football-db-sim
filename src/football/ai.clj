@@ -24,7 +24,10 @@
                (recur y (rest c)))))))))
 
 (defn- get-game-remaining [game]
-  (+ (:quarter-remaining game) (* rules/time-in-quarter (- rules/quarters-in-game (:quarter game)))))
+  (+ (:quarter-remaining game)
+     (* rules/time-in-quarter
+        (- rules/quarters-in-game
+           (:quarter game)))))
 
 (defn- get-playtype-from-db [game]
   (let [pdist (ai-db/get-play-distribution {:qtr (:quarter game)
@@ -107,7 +110,7 @@
    :playtype :kickoff})
 
 (defmethod pick-offense-play :extrapoint [game]
-  ;; TODO: You really want to first figure out if it is an 2 point attempt
+  ;; TODO: You really want to first figure out if it is a 2 point attempt
   {:type :extrapoint
    :playtype :fieldgoal})
 

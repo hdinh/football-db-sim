@@ -14,6 +14,10 @@ But really, this was just an excuse to play around with clojure and sql...
 # Usage
 
 * Untar the data contained in data/pbp.tar.gz
+
+        cd data
+        tar xvf pbp.tar.gz
+
 * Initialize the sqlite database (this will take a long time) by running:
 
         lein run -m football.init-data
